@@ -25,10 +25,20 @@ body {
   justify-content: center;
 }
 
+header {
+  padding: 3rem;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+}
+
 .section {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
   padding: 5rem;
+  margin-bottom: 5rem;
 }
 
 .app {
@@ -175,6 +185,23 @@ form h2 {
   text-transform: uppercase;
   letter-spacing: -0.5px;
   margin-bottom: 1.6rem;
+}
+
+.instructions {
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 750px;
+  padding: 2rem;
+}
+.instructions ul {
+  list-style: none;
+  font-size: 1.4rem;
+}
+.instruction-item p {
+  margin-bottom: 1rem;
+}
+.instruction-item p:not(:last-child) {
+  margin-bottom: 0;
 }
 
 @media screen and (min-width: 768px) {

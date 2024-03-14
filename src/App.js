@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import InstructionList from "./Components/InstructionList";
 const initialFriends = [
   {
     id: 118836,
@@ -21,6 +21,8 @@ const initialFriends = [
   },
 ];
 
+
+
 function Button({ children, onClick }) {
   return (
     <button className="button" onClick={onClick}>
@@ -33,6 +35,7 @@ export default function App() {
   const [friends, setFriends] = useState(initialFriends);
   const [showFormAddFriend, setShowFormAddFriend] = useState(false);
   const [selectedFriend, setSelectedFriend] = useState(null);
+  const [showInstructios, setShowInstructions] = useState(false);
 
   function handleShowAddFriend() {
     setShowFormAddFriend((show) => !show); // toggle the state (true -> false, false -> true)
@@ -59,10 +62,20 @@ export default function App() {
     );
     setSelectedFriend(null);
   }
+
+  function handleShowInstructions() {
+    setShowInstructions((show) => !show);
+  }
   return (
     <>
-
-
+      <header>
+        <div className="btn-instruction">
+          <Button onClick={handleShowInstructions}>{showInstructios ? 'Close' : 'Instructions'}</Button>
+        </div>
+        <div className="instructions" >
+          {showInstructios && <InstructionList />}
+        </div>
+      </header>
       <section className="section">
         <div className="app">
           <div className="sidebar">
