@@ -45,7 +45,7 @@ export default function App() {
   function handleSelection(friend) {
     // setSelectedFriend(friend);
     setSelectedFriend((cur) => cur?.id === friend.id ? null : friend)
-    setShowFormAddFriend(false); // close the form after selecting a friend
+    // close the form after selecting a friend
   }
 
   function handleSplitBill(value) {
@@ -61,21 +61,29 @@ export default function App() {
     setSelectedFriend(null);
   }
   return (
-    <div className="app">
-      <div className="sidebar">
-        <FriendList
-          friends={friends}
-          onSelection={handleSelection}
-          selectedFriend={selectedFriend}
-        />
-        {showFormAddFriend && <FormAddFriend onAddFriend={handleAddFriend} />}
-        {/*hide the component is the state is false */}
-        <Button onClick={handleShowAddFriend}>
-          {showFormAddFriend ? "Close" : "Add Friend"}
-        </Button>
-      </div>
-      {selectedFriend && <FormSplitBill selectedFriend={selectedFriend} onSplitBill={handleSplitBill} />}
-    </div>
+    <>
+
+      <section className="section">
+
+        <div className="app">
+          <div className="sidebar">
+            <FriendList
+              friends={friends}
+              onSelection={handleSelection}
+              selectedFriend={selectedFriend}
+            />
+            {showFormAddFriend && <FormAddFriend onAddFriend={handleAddFriend} />}
+            {/*hide the component is the state is false */}
+            <Button onClick={handleShowAddFriend}>
+              {showFormAddFriend ? "Close" : "Add Friend"}
+            </Button>
+          </div>
+          {selectedFriend && <FormSplitBill selectedFriend={selectedFriend} onSplitBill={handleSplitBill} />}
+
+        </div>
+      </section>
+    </>
+
   );
 }
 
