@@ -72,10 +72,10 @@ export default function App() {
         <div className="btn-instruction">
           <Button onClick={handleShowInstructions}>{showInstructios ? 'Close' : 'Instructions'}</Button>
         </div>
-        <div className="instructions" >
+        <div className={showInstructios ? 'instructions' : 'hide'} >
           {showInstructios && <InstructionList />}
         </div>
-      </header>
+      </header >
       <section className="section">
         <div className="app">
           <div className="sidebar">
