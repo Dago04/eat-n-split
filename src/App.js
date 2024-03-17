@@ -21,8 +21,6 @@ const initialFriends = [
   },
 ];
 
-
-
 function Button({ children, onClick }) {
   return (
     <button className="button" onClick={onClick}>
@@ -70,12 +68,14 @@ export default function App() {
     <>
       <header>
         <div className="btn-instruction">
-          <Button onClick={handleShowInstructions}>{showInstructios ? 'Close' : 'Instructions'}</Button>
+          <Button onClick={handleShowInstructions}>
+            {showInstructios ? "Close" : "Instructions"}
+          </Button>
         </div>
-        <div className={showInstructios ? 'instructions' : 'hide'} >
+        <div className={showInstructios ? "instructions" : "hide"}>
           {showInstructios && <InstructionList />}
         </div>
-      </header >
+      </header>
       <section className="section">
         <div className="app">
           <div className="sidebar">
@@ -92,14 +92,17 @@ export default function App() {
               {showFormAddFriend ? "Close" : "Add Friend"}
             </Button>
           </div>
+
           {selectedFriend && (
             <FormSplitBill
               selectedFriend={selectedFriend}
               onSplitBill={handleSplitBill}
+              key={selectedFriend.id}
             />
           )}
+
         </div>
-      </section>
+      </section >
     </>
   );
 }
